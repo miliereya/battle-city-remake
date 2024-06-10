@@ -1,0 +1,58 @@
+const wh = '#fcfcfc'
+const pu = '#8c0074'
+const re = '#d82800'
+const no = ''
+
+export const bang = {
+	t1: [
+		[no, no, no, no, no, no, no, no, no, no, no, no, no, no, no],
+		[no, no, no, no, no, no, no, no, no, no, no, no, no, no, no],
+		[no, no, no, no, no, no, wh, no, no, no, no, no, wh, no, no],
+		[no, no, wh, no, no, no, wh, no, no, wh, no, wh, no, no, no],
+		[no, no, pu, wh, wh, no, pu, wh, no, wh, wh, pu, no, no, no],
+		[no, no, no, pu, pu, wh, wh, pu, pu, wh, pu, no, no, no, no],
+		[no, no, no, no, pu, wh, re, wh, re, wh, pu, wh, wh, no, no],
+		[no, no, wh, wh, wh, pu, wh, re, no, re, pu, pu, no, no, no],
+		[no, no, no, no, pu, wh, no, re, re, wh, pu, no, no, no, no],
+		[no, no, no, no, wh, wh, re, no, no, re, wh, pu, no, no, no],
+		[no, no, no, wh, pu, no, wh, pu, wh, wh, pu, wh, pu, no, no],
+		[no, no, wh, pu, no, pu, wh, no, pu, wh, no, no, wh, no, no],
+		[no, no, no, no, no, wh, no, no, no, pu, no, no, no, no, no],
+		[no, no, no, no, no, no, no, no, no, no, no, no, no, no, no],
+		[no, no, no, no, no, no, no, no, no, no, no, no, no, no, no],
+	],
+	t2: [
+		[no, no, no, no, no, no, no, no, no, no, no, no, no, no, no],
+		[no, no, no, no, no, wh, no, no, no, no, no, no, no, no, no],
+		[no, no, pu, pu, wh, wh, wh, no, pu, wh, no, no, wh, no, no],
+		[no, no, wh, wh, wh, wh, wh, pu, pu, wh, wh, wh, no, no, no],
+		[no, no, pu, wh, pu, wh, pu, wh, re, pu, wh, pu, no, no, no],
+		[no, no, no, pu, re, wh, no, pu, pu, wh, pu, pu, no, no, no],
+		[no, no, no, wh, pu, re, re, re, re, wh, pu, pu, wh, no, no],
+		[no, no, pu, wh, wh, pu, re, re, wh, re, pu, pu, no, no, no],
+		[no, no, pu, re, pu, no, re, re, re, wh, wh, pu, pu, no, no],
+		[no, no, no, pu, pu, wh, re, re, no, re, wh, pu, pu, no, no],
+		[no, no, no, wh, pu, re, no, pu, re, pu, pu, wh, pu, no, no],
+		[no, no, wh, pu, wh, pu, wh, wh, pu, wh, no, no, wh, no, no],
+		[no, no, no, pu, wh, wh, pu, wh, wh, pu, no, no, no, no, no],
+		[no, no, no, no, no, no, no, pu, no, no, no, no, no, no, no],
+		[no, no, no, no, no, no, no, no, no, no, no, no, no, no, no],
+	],
+	t3: [
+		[no, no, no, no, wh, no, pu, no, no, pu, no, no, no, no, no],
+		[wh, pu, no, no, no, wh, no, no, no, no, pu, pu, no, wh, no],
+		[no, pu, pu, pu, wh, wh, wh, no, pu, wh, no, no, pu, wh, no],
+		[no, no, pu, pu, wh, wh, wh, pu, pu, wh, wh, pu, wh, no, no],
+		[pu, pu, pu, pu, pu, wh, pu, wh, re, pu, pu, wh, no, no, no],
+		[no, no, no, pu, re, wh, no, pu, pu, wh, pu, pu, no, no, no],
+		[pu, pu, pu, pu, wh, re, re, re, re, no, pu, pu, wh, no, no],
+		[no, no, pu, wh, wh, pu, no, no, wh, re, pu, pu, wh, wh, wh],
+		[no, no, pu, wh, wh, no, re, no, re, wh, wh, pu, pu, no, no],
+		[no, wh, wh, pu, pu, wh, re, re, no, re, wh, pu, wh, wh, no],
+		[no, wh, no, wh, pu, re, no, pu, re, pu, pu, pu, pu, no, wh],
+		[pu, wh, wh, pu, wh, pu, wh, wh, pu, wh, wh, wh, wh, no, no],
+		[pu, no, no, pu, wh, wh, pu, wh, wh, pu, no, wh, pu, no, no],
+		[no, no, wh, no, no, pu, pu, wh, no, no, no, no, wh, pu, no],
+		[no, wh, wh, no, no, pu, no, wh, no, no, pu, no, no, no, no],
+	],
+}

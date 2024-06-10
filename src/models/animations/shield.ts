@@ -1,0 +1,41 @@
+const wh = '#fcfcfc'
+const no = ''
+
+export const shield = {
+	t1: [
+		[no, no, no, no, no, no, wh, wh, wh, wh, no, no, no, no, no, no],
+		[no, no, no, no, no, wh, no, no, no, no, wh, no, no, no, no, no],
+		[no, no, no, no, wh, no, no, no, no, no, no, wh, no, no, no, no],
+		[no, no, no, no, wh, no, no, no, no, no, no, wh, no, no, no, no],
+		[no, no, wh, wh, no, no, no, no, no, no, no, no, wh, wh, no, no],
+		[no, wh, no, no, no, no, no, no, no, no, no, no, no, no, wh, no],
+		[wh, no, no, no, no, no, no, no, no, no, no, no, no, no, no, wh],
+		[wh, no, no, no, no, no, no, no, no, no, no, no, no, no, no, wh],
+		[wh, no, no, no, no, no, no, no, no, no, no, no, no, no, no, wh],
+		[wh, no, no, no, no, no, no, no, no, no, no, no, no, no, no, wh],
+		[no, wh, no, no, no, no, no, no, no, no, no, no, no, no, wh, no],
+		[no, no, wh, wh, no, no, no, no, no, no, no, no, no, wh, no, no],
+		[no, no, no, no, wh, no, no, no, no, no, no, no, no, wh, no, no],
+		[no, no, no, no, wh, no, no, no, no, no, no, wh, wh, no, no, no],
+		[no, no, no, no, no, wh, no, no, no, no, wh, no, no, no, no, no],
+		[no, no, no, no, no, no, wh, wh, wh, wh, no, no, no, no, no, no],
+	],
+	t2: [
+		[no, no, wh, wh, no, no, no, no, no, no, no, no, wh, wh, no, no],
+		[no, wh, no, no, wh, no, no, no, no, no, no, wh, no, no, wh, no],
+		[wh, no, no, no, no, wh, wh, no, no, wh, wh, no, no, no, no, wh],
+		[wh, no, no, no, no, no, no, wh, wh, no, no, no, no, no, no, wh],
+		[no, wh, no, no, no, no, no, no, no, no, no, no, no, no, wh, no],
+		[no, no, wh, no, no, no, no, no, no, no, no, no, no, wh, no, no],
+		[no, no, wh, no, no, no, no, no, no, no, no, no, no, wh, no, no],
+		[no, no, no, wh, no, no, no, no, no, no, no, no, wh, no, no, no],
+		[no, no, no, wh, no, no, no, no, no, no, no, no, wh, no, no, no],
+		[no, no, wh, no, no, no, no, no, no, no, no, no, no, wh, no, no],
+		[no, no, wh, no, no, no, no, no, no, no, no, no, no, wh, no, no],
+		[no, wh, no, no, no, no, no, no, no, no, no, no, no, no, wh, no],
+		[wh, no, no, no, no, no, no, wh, wh, no, no, no, no, no, no, wh],
+		[wh, no, no, no, no, wh, wh, no, no, wh, wh, no, no, no, no, wh],
+		[no, wh, no, no, wh, no, no, no, no, no, no, wh, no, no, wh, no],
+		[no, no, wh, wh, no, no, no, no, no, no, no, no, wh, wh, no, no],
+	],
+}

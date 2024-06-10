@@ -1,0 +1,462 @@
+.gray_screen_wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	position: absolute;
+	height: 936px;
+	z-index: 15;
+}
+
+.gray_screen_block {
+	width: 936px;
+	height: 0;
+	background: #747477;
+	animation: 3s screen_gray;
+}
+
+.gray_screen_text {
+	position: absolute;
+	top: 50%;
+	margin-top: -15px;
+	font-size: 30px;
+	line-height: 30px;
+	font-family: 'Battle City';
+	opacity: 0;
+	animation: 3s appear_text;
+}
+
+.game_over_text {
+	position: absolute;
+	color: #e44437;
+	font-size: 30px;
+	line-height: 30px;
+	font-family: 'Battle City';
+	animation: 5s game_over;
+	z-index: 15;
+	left: 50%;
+	margin-left: -60px;
+}
+
+.pause {
+	position: absolute;
+	left: 50%;
+	margin-left: -75px;
+	top: 50%;
+	margin-top: -15px;
+	color: #e44437;
+	font-size: 30px;
+	line-height: 30px;
+	font-family: 'Battle City';
+	z-index: 99;
+}
+
+@keyframes appear_text {
+	30% {
+		opacity: 0;
+	}
+	31% {
+		opacity: 1;
+	}
+	69% {
+		opacity: 1;
+	}
+	70% {
+		opacity: 0;
+	}
+}
+
+@keyframes screen_gray {
+	0% {
+		height: 0px;
+	}
+	30% {
+		height: 600px;
+	}
+	70% {
+		height: 600px;
+	}
+}
+
+@keyframes game_over {
+	0% {
+		bottom: 0;
+	}
+	75% {
+		bottom: 400px;
+	}
+	100% {
+		bottom: 400px;
+	}
+}
+
+@media (max-width: 1090px) or (max-height: 980px) {
+	.gray_screen_wrapper {
+		height: 832px;
+	}
+
+	.gray_screen_block {
+		width: 832px;
+		animation: 3s screen_gray_1090;
+	}
+
+	.gray_screen_text {
+		margin-top: -12px;
+		font-size: 24px;
+		line-height: 24px;
+	}
+
+	.game_over_text {
+		font-size: 24px;
+		line-height: 24px;
+		animation: 5s game_over_1090;
+		margin-left: -50px;
+	}
+
+	@keyframes screen_gray_1090 {
+		0% {
+			height: 0px;
+		}
+		30% {
+			height: 416px;
+		}
+		70% {
+			height: 416px;
+		}
+	}
+
+	@keyframes game_over_1090 {
+		0% {
+			bottom: 0;
+		}
+		75% {
+			bottom: 410px;
+		}
+		100% {
+			bottom: 410px;
+		}
+	}
+}
+
+@media (max-width: 950px) or (max-height: 870px) {
+	.pause {
+		margin-top: -12px;
+		margin-left: -62px;
+		font-size: 24px;
+		line-height: 24px;
+	}
+
+	.gray_screen_wrapper {
+		height: 728px;
+	}
+
+	.gray_screen_block {
+		width: 728px;
+		animation: 3s screen_gray_870;
+	}
+
+	.gray_screen_text {
+		margin-top: -12px;
+		font-size: 24px;
+		line-height: 24px;
+	}
+
+	.game_over_text {
+		font-size: 24px;
+		line-height: 24px;
+		animation: 5s game_over_870;
+		margin-left: -50px;
+	}
+
+	@keyframes screen_gray_870 {
+		0% {
+			height: 0px;
+		}
+		30% {
+			height: 364px;
+		}
+		70% {
+			height: 364px;
+		}
+	}
+
+	@keyframes game_over_870 {
+		0% {
+			bottom: 0;
+		}
+		75% {
+			bottom: 360px;
+		}
+		100% {
+			bottom: 360px;
+		}
+	}
+}
+
+@media (max-width: 845px) or (max-height: 765px) {
+	.gray_screen_wrapper {
+		height: 624px;
+	}
+
+	.gray_screen_block {
+		width: 624px;
+		animation: 3s screen_gray_845;
+	}
+
+	.gray_screen_text {
+		margin-top: -10px;
+		font-size: 21px;
+		line-height: 21px;
+	}
+
+	.game_over_text {
+		font-size: 21px;
+		line-height: 21px;
+		animation: 5s game_over_845;
+		margin-left: -50px;
+	}
+
+	@keyframes screen_gray_845 {
+		0% {
+			height: 0px;
+		}
+		30% {
+			height: 320px;
+		}
+		70% {
+			height: 320px;
+		}
+	}
+
+	@keyframes game_over_845 {
+		0% {
+			bottom: 0;
+		}
+		75% {
+			bottom: 310px;
+		}
+		100% {
+			bottom: 310px;
+		}
+	}
+}
+
+@media (max-width: 750px) or (max-height: 660px) {
+	.pause {
+		margin-top: -10px;
+		margin-left: -50px;
+		font-size: 20px;
+		line-height: 20px;
+	}
+
+	.gray_screen_wrapper {
+		height: 520px;
+	}
+
+	.gray_screen_block {
+		width: 520px;
+		animation: 3s screen_gray_750;
+	}
+
+	.gray_screen_text {
+		margin-top: -9px;
+		font-size: 18px;
+		line-height: 18px;
+	}
+
+	.game_over_text {
+		font-size: 20px;
+		line-height: 20px;
+		animation: 5s game_over_750;
+		margin-left: -50px;
+	}
+
+	@keyframes screen_gray_750 {
+		0% {
+			height: 0px;
+		}
+		30% {
+			height: 260px;
+		}
+		70% {
+			height: 260px;
+		}
+	}
+
+	@keyframes game_over_750 {
+		0% {
+			bottom: 0;
+		}
+		75% {
+			bottom: 240px;
+		}
+		100% {
+			bottom: 240px;
+		}
+	}
+}
+
+@media (max-width: 610px) or (max-height: 550px) {
+	.pause {
+		margin-top: -7px;
+		margin-left: -37px;
+		font-size: 15px;
+		line-height: 15px;
+	}
+
+	.gray_screen_wrapper {
+		height: 416px;
+	}
+
+	.gray_screen_block {
+		width: 416px;
+		animation: 3s screen_gray_610;
+	}
+
+	.gray_screen_text {
+		margin-top: -9px;
+		font-size: 18px;
+		line-height: 18px;
+	}
+
+	.game_over_text {
+		font-size: 18px;
+		line-height: 18px;
+		animation: 5s game_over_610;
+		margin-left: -30px;
+	}
+
+	@keyframes screen_gray_610 {
+		0% {
+			height: 0px;
+		}
+		30% {
+			height: 208px;
+		}
+		70% {
+			height: 208px;
+		}
+	}
+
+	@keyframes game_over_610 {
+		0% {
+			bottom: 0;
+		}
+		75% {
+			bottom: 195px;
+		}
+		100% {
+			bottom: 195px;
+		}
+	}
+}
+
+@media (max-width: 500px) or (max-height: 460px) {
+	.pause {
+		margin-top: -6px;
+		margin-left: -30px;
+		font-size: 12px;
+		line-height: 12px;
+	}
+
+	.gray_screen_wrapper {
+		height: 312px;
+	}
+
+	.gray_screen_block {
+		width: 312px;
+		animation: 3s screen_gray_500;
+	}
+
+	.gray_screen_text {
+		margin-top: -8px;
+		font-size: 16px;
+		line-height: 16px;
+	}
+
+	.game_over_text {
+		font-size: 16px;
+		line-height: 16px;
+		animation: 5s game_over_500;
+		margin-left: -22px;
+	}
+
+	@keyframes screen_gray_500 {
+		0% {
+			height: 0px;
+		}
+		30% {
+			height: 161px;
+		}
+		70% {
+			height: 161px;
+		}
+	}
+
+	@keyframes game_over_500 {
+		0% {
+			bottom: 0;
+		}
+		75% {
+			bottom: 140px;
+		}
+		100% {
+			bottom: 140px;
+		}
+	}
+}
+
+@media (max-width: 360px) or (max-height: 340px) {
+	.pause {
+		margin-top: -3.5px;
+		margin-left: -17.5px;
+		font-size: 7px;
+		line-height: 7px;
+	}
+
+	.gray_screen_wrapper {
+		height: 208px;
+	}
+
+	.gray_screen_block {
+		width: 208px;
+		animation: 3s screen_gray_360;
+	}
+
+	.gray_screen_text {
+		margin-top: -5px;
+		font-size: 10px;
+		line-height: 10px;
+	}
+
+	.game_over_text {
+		font-size: 10px;
+		line-height: 10px;
+		animation: 5s game_over_360;
+		margin-left: -20px;
+	}
+
+	@keyframes screen_gray_360 {
+		0% {
+			height: 0px;
+		}
+		30% {
+			height: 104px;
+		}
+		70% {
+			height: 104px;
+		}
+	}
+
+	@keyframes game_over_360 {
+		0% {
+			bottom: 0;
+		}
+		75% {
+			bottom: 90px;
+		}
+		100% {
+			bottom: 90px;
+		}
+	}
+}

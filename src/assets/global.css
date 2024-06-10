@@ -1,0 +1,461 @@
+@font-face {
+	font-family: 'Battle City';
+	src: url('./fonts/prstart.ttf');
+	font-weight: 400;
+	font-style: normal;
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	font-family: 'Battle City';
+	-webkit-user-select: none; /* Safari */
+	-ms-user-select: none; /* IE 10 and IE 11 */
+	user-select: none; /* Standard syntax */
+}
+
+html,
+body {
+	overflow-x: hidden;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100svw;
+	height: 100svh;
+	background: #000;
+}
+
+.game {
+	box-sizing: content-box;
+	position: relative;
+	border-top: #747477 solid 16px;
+	border-left: #747477 solid 40px;
+	border-right: #747477 solid 96px;
+	border-bottom: #747477 solid 16px;
+	background-color: #000;
+}
+
+.row {
+	display: flex;
+}
+
+.object {
+	position: absolute;
+}
+
+.pixel {
+	width: 4.5px;
+	height: 4.5px;
+}
+
+.sidebar {
+	position: absolute;
+	left: 951px;
+
+	.sidebar_text {
+		font-family: 'Battle City';
+		font-size: 37px;
+		line-height: 37px;
+		letter-spacing: 0px;
+	}
+
+	.sidebar_text_stage_num {
+		margin-left: 10px;
+	}
+
+	.stage_wrapper {
+		margin-top: 50px;
+	}
+
+	.tank_container {
+		position: absolute;
+		display: flex;
+		flex-wrap: wrap;
+		width: 80px;
+		margin-top: 20px;
+
+		.tank_icon_wrapper {
+			height: 30px;
+			margin-bottom: 4px;
+			margin-right: 4px;
+		}
+	}
+
+	.p1_container {
+		margin-top: 510px;
+	}
+	.p2_container {
+		margin-top: 30px;
+	}
+
+	.p_num_wrapper {
+		display: flex;
+		gap: 2px;
+	}
+}
+
+@media (max-width: 1090px) or (max-height: 980px) {
+	.pixel {
+		width: 4px;
+		height: 4px;
+	}
+	.game {
+		border-top: #747477 solid 12px;
+		border-left: #747477 solid 32px;
+		border-right: #747477 solid 80px;
+		border-bottom: #747477 solid 12px;
+	}
+	.sidebar {
+		left: 843px;
+
+		.sidebar_text {
+			font-size: 30px;
+			line-height: 30px;
+		}
+
+		.sidebar_text_stage_num {
+			margin-left: 10px;
+		}
+
+		.stage_wrapper {
+			margin-top: 38px;
+		}
+
+		.tank_container {
+			width: 70px;
+			margin-top: 17px;
+			.tank_icon_wrapper {
+				height: 30px;
+				margin-bottom: 3px;
+				margin-right: 3px;
+			}
+		}
+
+		.p1_container {
+			margin-top: 468px;
+		}
+		.p2_container {
+			margin-top: 24px;
+		}
+
+		.p_num_wrapper {
+			display: flex;
+			gap: 2px;
+		}
+	}
+}
+
+@media (max-width: 950px) or (max-height: 870px) {
+	.pixel {
+		width: 3.5px;
+		height: 3.5px;
+	}
+	.game {
+		border-top: #747477 solid 12px;
+		border-left: #747477 solid 32px;
+		border-right: #747477 solid 72px;
+		border-bottom: #747477 solid 12px;
+	}
+	.sidebar {
+		left: 738px;
+
+		.sidebar_text {
+			font-size: 25px;
+			line-height: 25px;
+		}
+
+		.sidebar_text_stage_num {
+			margin-left: 10px;
+		}
+
+		.stage_wrapper {
+			margin-top: 38px;
+		}
+
+		.tank_container {
+			width: 60px;
+			margin-top: 17px;
+			.tank_icon_wrapper {
+				height: 29px;
+				margin-bottom: 3px;
+				margin-right: 3px;
+			}
+		}
+
+		.p1_container {
+			margin-top: 398px;
+		}
+		.p2_container {
+			margin-top: 24px;
+		}
+
+		.p_num_wrapper {
+			display: flex;
+			gap: 2px;
+		}
+	}
+}
+
+@media (max-width: 845px) or (max-height: 765px) {
+	.pixel {
+		width: 3px;
+		height: 3px;
+	}
+	.game {
+		border-top: #747477 solid 12px;
+		border-left: #747477 solid 32px;
+		border-right: #747477 solid 72px;
+		border-bottom: #747477 solid 12px;
+	}
+	.sidebar {
+		left: 638px;
+
+		.sidebar_text {
+			font-size: 25px;
+			line-height: 25px;
+		}
+
+		.sidebar_text_stage_num {
+			margin-left: 10px;
+		}
+
+		.stage_wrapper {
+			margin-top: 38px;
+		}
+
+		.tank_container {
+			width: 48px;
+			margin-top: 17px;
+			.tank_icon_wrapper {
+				height: 30px;
+				margin-bottom: 3px;
+				margin-right: 3px;
+			}
+		}
+
+		.p1_container {
+			margin-top: 358px;
+		}
+		.p2_container {
+			margin-top: 24px;
+		}
+
+		.p_num_wrapper {
+			display: flex;
+			gap: 2px;
+		}
+	}
+}
+
+@media (max-width: 750px) or (max-height: 660px) {
+	.pixel {
+		width: 2.5px;
+		height: 2.5px;
+	}
+	.game {
+		border-top: #747477 solid 8px;
+		border-left: #747477 solid 24px;
+		border-right: #747477 solid 48px;
+		border-bottom: #747477 solid 8px;
+	}
+	.sidebar {
+		left: 525px;
+
+		.sidebar_text {
+			font-size: 17px;
+			line-height: 17px;
+		}
+
+		.sidebar_text_stage_num {
+			margin-left: 5px;
+		}
+
+		.stage_wrapper {
+			margin-top: 23px;
+		}
+
+		.tank_container {
+			width: 45px;
+			margin-top: 2px;
+			.tank_icon_wrapper {
+				height: 22px;
+				margin-bottom: 2px;
+				margin-right: 2px;
+			}
+		}
+
+		.p1_container {
+			margin-top: 288px;
+		}
+		.p2_container {
+			margin-top: 18px;
+		}
+
+		.p_num_wrapper {
+			display: flex;
+			gap: 2px;
+		}
+	}
+}
+
+@media (max-width: 610px) or (max-height: 550px) {
+	.pixel {
+		width: 2px;
+		height: 2px;
+	}
+	.game {
+		border-top: #747477 solid 8px;
+		border-left: #747477 solid 24px;
+		border-right: #747477 solid 48px;
+		border-bottom: #747477 solid 8px;
+	}
+	.sidebar {
+		left: 424px;
+
+		.sidebar_text {
+			font-size: 17px;
+			line-height: 17px;
+		}
+
+		.sidebar_text_stage_num {
+			margin-left: 5px;
+		}
+
+		.stage_wrapper {
+			margin-top: 23px;
+		}
+
+		.tank_container {
+			width: 34px;
+			margin-top: 5px;
+			.tank_icon_wrapper {
+				height: 17px;
+				margin-bottom: 2px;
+				margin-right: 2px;
+			}
+		}
+
+		.p1_container {
+			margin-top: 228px;
+		}
+		.p2_container {
+			margin-top: 18px;
+		}
+
+		.p_num_wrapper {
+			display: flex;
+			gap: 2px;
+		}
+	}
+}
+
+@media (max-width: 500px) or (max-height: 460px) {
+	.pixel {
+		width: 1.5px;
+		height: 1.5px;
+	}
+	.game {
+		border-top: #747477 solid 5px;
+		border-left: #747477 solid 14px;
+		border-right: #747477 solid 29px;
+		border-bottom: #747477 solid 5px;
+	}
+	.sidebar {
+		left: 314px;
+
+		.sidebar_text {
+			font-size: 11px;
+			line-height: 11px;
+		}
+
+		.sidebar_text_stage_num {
+			margin-left: 5px;
+		}
+
+		.stage_wrapper {
+			margin-top: 15px;
+		}
+
+		.tank_container {
+			width: 29px;
+			margin-top: 0;
+			.tank_icon_wrapper {
+				height: 10px;
+				margin-bottom: 3px;
+				margin-right: 3px;
+			}
+		}
+
+		.p1_container {
+			margin-top: 162px;
+		}
+		.p2_container {
+			margin-top: 9px;
+		}
+
+		.p_num_wrapper {
+			display: flex;
+			gap: 2px;
+		}
+	}
+}
+
+@media (max-width: 360px) or (max-height: 340px) {
+	.pixel {
+		width: 1px;
+		height: 1px;
+	}
+	.game {
+		border-top: #747477 solid 4px;
+		border-left: #747477 solid 14px;
+		border-right: #747477 solid 22px;
+		border-bottom: #747477 solid 4px;
+	}
+	.sidebar {
+		left: 212px;
+
+		.sidebar_text {
+			font-size: 8px;
+			line-height: 8px;
+		}
+
+		.sidebar_text_stage_num {
+			margin-left: 2px;
+		}
+
+		.stage_wrapper {
+			margin-top: 15px;
+		}
+
+		.tank_container {
+			width: 18px;
+			margin-top: 0;
+			.tank_icon_wrapper {
+				height: 8px;
+				margin-bottom: 1px;
+				margin-right: 1px;
+			}
+		}
+
+		.p1_container {
+			margin-top: 102px;
+		}
+		.p2_container {
+			margin-top: 9px;
+		}
+
+		.p_num_wrapper {
+			display: flex;
+			gap: 2px;
+		}
+	}
+}
