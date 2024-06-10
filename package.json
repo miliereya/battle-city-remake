@@ -1,6 +1,6 @@
 {
 	"name": "battle-city-remake",
-	"private": true,
+	"private": false,
 	"version": "1.0.0",
 	"type": "module",
 	"author": "Daniel Shvedov",
