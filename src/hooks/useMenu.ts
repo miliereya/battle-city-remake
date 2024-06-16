@@ -3,6 +3,7 @@ import { TypePlayerLevel } from '@/types'
 import { useCallback, useEffect, useState } from 'react'
 import { useGame } from './useGame'
 import { getRandomInt } from '@/utils'
+import { useMobile } from './useMobile'
 
 type MenuState =
 	| 'main'
@@ -39,6 +40,7 @@ const menuStates = (
 
 export const useMenu = () => {
 	const { startLocalGame, createLobby, joinLobby } = useGame()
+	const isMobile = useMobile()
 
 	const [isEditing, setEditing] = useState(false)
 	const [choose, setChoose] = useState(1)
@@ -243,6 +245,37 @@ export const useMenu = () => {
 
 		const chooseHandlerListener = (e: KeyboardEvent) => {
 			chooseHandler(e.code)
+		}
+
+		const mobileHandlers = [
+			{
+				id: 'top1',
+				event: 'click',
+				handler: () => setChooseHandler('-'),
+			},
+			{
+				id: 'bottom1',
+				event: 'click',
+				handler: () => setChooseHandler('+'),
+			},
+			{
+				id: 'fire1',
+				event: 'click',
+				handler: () => chooseHandler('Enter'),
+			},
+		]
+
+		if (isMobile) {
+			mobileHandlers.forEach(({ id, event, handler }) => {
+				document.getElementById(id)?.addEventListener(event, handler)
+			})
+			return () => {
+				mobileHandlers.forEach(({ id, event, handler }) => {
+					document
+						.getElementById(id)
+						?.removeEventListener(event, handler)
+				})
+			}
 		}
 
 		document.addEventListener('keypress', chooseHandlerListener)
