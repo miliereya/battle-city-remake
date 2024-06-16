@@ -1,15 +1,15 @@
-import { useControls, useFrameLoop, useGame } from '@/hooks'
+import { useOnlineControls, useFrameLoop, useGame } from '@/hooks'
 import { useState } from 'react'
 import { GameRender } from './game'
 
-export const SetupLocal = () => {
+export const SetupOnline = () => {
 	const [frame, setFrame] = useState(0)
 	const { game } = useGame()
 
-	useControls(game)
+	useOnlineControls(game)
 
 	useFrameLoop(() => {
-		if (game && game?.frame !== frame) {
+		if (game && game.frame !== frame) {
 			setFrame(game.frame)
 		}
 	})

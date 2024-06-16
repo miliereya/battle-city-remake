@@ -2,6 +2,7 @@ import { GameSettings } from '@/engine'
 import { TypePlayerLevel } from '@/types'
 import { useCallback, useEffect, useState } from 'react'
 import { useGame } from './useGame'
+import { getRandomInt } from '@/utils'
 
 type MenuState =
 	| 'main'
@@ -14,15 +15,19 @@ type MenuState =
 	| 'lobby'
 	| 'find lobby'
 
-const menuStates = (gameSettings: GameSettings) => ({
+const menuStates = (
+	gameSettings: GameSettings,
+	lobbyId: string,
+	searchingLobbyId: string
+) => ({
 	main: ['1 PLAYER', '2 PLAYERS', 'MULTIPLAYER', 'SETTINGS'],
 	'1 player': ['PLAY', 'CONSTRUCTION', 'BACK'],
 	'2 players': ['PLAY', 'CONSTRUCTION', 'BACK'],
-	multiplayer: ['CREATE LOBBY', 'FIND LOBBY', 'CHECK PING', 'BACK'],
-	'create lobby': ['NAME:', 'CREATE', 'CONSTRUCTION', 'BACK'],
-	'find lobby': ['NAME:', 'FIND LOBBY', 'BACK'],
+	multiplayer: ['CREATE LOBBY', 'FIND LOBBY', 'BACK'],
+	'create lobby': [`ID:  ${lobbyId}`, 'CREATE', 'CONSTRUCTION', 'BACK'],
+	'find lobby': [`ID: ${searchingLobbyId}`, 'FIND LOBBY', 'BACK'],
 	'join lobby': ['WAITING'],
-	lobby: ['LOBBY:', '(WAIT FOR P2)', 'BACK'],
+	lobby: [`ID: ${lobbyId}`, '(WAIT FOR P2)', 'BACK'],
 	settings: [
 		`SOUND (${gameSettings.soundPack})`,
 		`FRIENDLY FIRE (${gameSettings.friendlyFire ? 'y' : 'n'})`,
@@ -33,15 +38,25 @@ const menuStates = (gameSettings: GameSettings) => ({
 })
 
 export const useMenu = () => {
-	const { startLocalGame } = useGame()
+	const { startLocalGame, createLobby, joinLobby } = useGame()
+
 	const [isEditing, setEditing] = useState(false)
 	const [choose, setChoose] = useState(1)
 	const [range, setRange] = useState(4)
 	const [state, setState] = useState<MenuState>('main')
+
+	// Game Settings
 	const [soundPack, setSoundPack] = useState<'default' | 'mario'>('default')
 	const [hardcore, setHardcore] = useState(false)
 	const [friendlyFire, setFriendlyFire] = useState(false)
 	const [playerLevel, setPlayerLevel] = useState<TypePlayerLevel>(0)
+
+	// Lobbying
+	const [lobbyId, setLobbyId] = useState('1000')
+	const [searchingLobbyId, setSearchingLobbyId] = useState('')
+
+	const getMenuStates = () =>
+		menuStates(gameSettings, lobbyId, searchingLobbyId)
 
 	const playMenuSound = useCallback(() => {
 		const sound = new Audio(`/audio/${soundPack}/menu.ogg`)
@@ -70,7 +85,7 @@ export const useMenu = () => {
 	}
 
 	const updateState = (newState: MenuState) => {
-		setRange(newState === 'settings' ? 5 : newState === 'main' ? 4 : 3)
+		setRange(getMenuStates()[newState].length)
 		setState(newState)
 		setChoose(1)
 		playChooseSound()
@@ -171,6 +186,57 @@ export const useMenu = () => {
 								break
 						}
 						break
+					case 'multiplayer':
+						switch (choose) {
+							case 1:
+								updateState('create lobby')
+								setLobbyId(String(getRandomInt(1000, 9999)))
+								break
+							case 2:
+								updateState('find lobby')
+								break
+							case 3:
+								updateState('main')
+								break
+						}
+						break
+					case 'create lobby':
+						switch (choose) {
+							case 2:
+								updateState('lobby')
+								createLobby(lobbyId, settings)
+								break
+							case 3:
+								setEditing(true)
+								break
+							case 4:
+								updateState('multiplayer')
+								break
+						}
+						break
+					case 'lobby':
+						switch (choose) {
+							case 3:
+								updateState('multiplayer')
+								break
+						}
+						break
+					case 'find lobby':
+						switch (choose) {
+							case 1:
+								setSearchingLobbyId(prompt()?.slice(0, 4) ?? '')
+								break
+							case 2:
+								if (!searchingLobbyId) break
+
+								joinLobby(searchingLobbyId)
+								break
+							case 3:
+								updateState('multiplayer')
+								setSearchingLobbyId('')
+								break
+						}
+						break
 				}
 			}
 		}
@@ -187,7 +253,7 @@ export const useMenu = () => {
 	}, [state, choose, soundPack, isEditing])
 
 	return {
-		state: menuStates(gameSettings)[state],
+		state: getMenuStates()[state],
 		choose,
 		isEditing,
 		setEditing,

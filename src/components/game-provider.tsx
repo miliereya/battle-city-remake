@@ -9,6 +9,7 @@ import {
 	useState,
 } from 'react'
 import { Controls } from './controls/controls'
+import { gameApi } from '@/api'
 
 interface GameContextInterface {
 	game?: Game
@@ -21,6 +22,8 @@ interface GameContextInterface {
 		settings: GameSettings,
 		editor?: EditorObject[]
 	) => void
+	createLobby: (lobbyId: string, settings: GameSettings) => void
+	joinLobby: (lobbyId: string) => void
 }
 
 export const GameContext = createContext<GameContextInterface>({
@@ -30,6 +33,8 @@ export const GameContext = createContext<GameContextInterface>({
 	setEditor: () => {},
 	setEdited: () => {},
 	startLocalGame: () => {},
+	createLobby: () => {},
+	joinLobby: () => false,
 })
 
 interface Props {
@@ -52,6 +57,14 @@ export const GameProvider = ({ children }: Props) => {
 
 		setGame(newGame)
 		setEdited(false)
+	}
+
+	const createLobby = (lobbyId: string, settings: GameSettings) => {
+		gameApi.createLobby(lobbyId, setGame, settings)
+	}
+
+	const joinLobby = (lobbyId: string) => {
+		gameApi.joinLobby(lobbyId, setGame)
 	}
 
 	useEffect(() => {
@@ -77,7 +90,7 @@ export const GameProvider = ({ children }: Props) => {
 			}
 		}
 
-		gameLoop()
+		if (game?.id === 'local') gameLoop()
 	}, [game])
 
 	return (
@@ -89,6 +102,8 @@ export const GameProvider = ({ children }: Props) => {
 				setEditor,
 				startLocalGame,
 				setEdited: () => setEdited(true),
+				createLobby,
+				joinLobby,
 			}}
 		>
 			<Controls />
