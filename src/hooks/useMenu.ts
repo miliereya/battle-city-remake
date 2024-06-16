@@ -14,9 +14,7 @@ type MenuState =
 	| 'lobby'
 	| 'find lobby'
 
-const menuStates = (
-	gameSettings: GameSettings
-): Record<MenuState, string[]> => ({
+const menuStates = (gameSettings: GameSettings) => ({
 	main: ['1 PLAYER', '2 PLAYERS', 'MULTIPLAYER', 'SETTINGS'],
 	'1 player': ['PLAY', 'CONSTRUCTION', 'BACK'],
 	'2 players': ['PLAY', 'CONSTRUCTION', 'BACK'],
@@ -34,8 +32,9 @@ const menuStates = (
 	],
 })
 
-export const useMenu = (isEditing: boolean, setEditing: () => void) => {
+export const useMenu = () => {
 	const { startLocalGame } = useGame()
+	const [isEditing, setEditing] = useState(false)
 	const [choose, setChoose] = useState(1)
 	const [range, setRange] = useState(4)
 	const [state, setState] = useState<MenuState>('main')
@@ -76,6 +75,7 @@ export const useMenu = (isEditing: boolean, setEditing: () => void) => {
 		setChoose(1)
 		playChooseSound()
 	}
+
 	const setChooseHandler = useCallback(
 		(action: '+' | '-') => {
 			setChoose((prev) => {
@@ -126,7 +126,7 @@ export const useMenu = (isEditing: boolean, setEditing: () => void) => {
 								startLocalGame(1, settings)
 								break
 							case 2:
-								setEditing()
+								setEditing(true)
 								break
 							case 3:
 								updateState('main')
@@ -139,7 +139,7 @@ export const useMenu = (isEditing: boolean, setEditing: () => void) => {
 								startLocalGame(2, settings)
 								break
 							case 2:
-								setEditing()
+								setEditing(true)
 								break
 							case 3:
 								updateState('main')
@@ -186,5 +186,10 @@ export const useMenu = (isEditing: boolean, setEditing: () => void) => {
 		}
 	}, [state, choose, soundPack, isEditing])
 
-	return { state: menuStates(gameSettings)[state], choose }
+	return {
+		state: menuStates(gameSettings)[state],
+		choose,
+		isEditing,
+		setEditing,
+	}
 }

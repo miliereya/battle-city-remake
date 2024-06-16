@@ -8,6 +8,7 @@ interface SidebarProps {
 
 export const Sidebar = (props: SidebarProps) => {
 	const { enemyList, p1, p2, level } = props.game
+
 	return (
 		<div className="sidebar">
 			<div className="tank_container">

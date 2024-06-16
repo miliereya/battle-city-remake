@@ -5,6 +5,7 @@ import {
 	ReactNode,
 	SetStateAction,
 	createContext,
+	useEffect,
 	useState,
 } from 'react'
 import { Controls } from './controls/controls'
@@ -51,23 +52,33 @@ export const GameProvider = ({ children }: Props) => {
 
 		setGame(newGame)
 		setEdited(false)
+	}
 
-		const gameInterval = setInterval(() => {
+	useEffect(() => {
+		const gameLoop = () => {
 			try {
-				gameFrame(newGame)
+				if (!game) return
 
-				if (newGame.isEnded) {
-					clearInterval(gameInterval)
+				const startTime = new Date().getTime()
+				gameFrame(game)
+
+				if (game.isEnded) {
 					setGame(undefined)
+				} else {
+					setTimeout(
+						() => gameLoop(),
+						22 - (new Date().getTime() - startTime)
+					)
 				}
 			} catch (error) {
 				alert('Game crashed :(')
 				console.error('Error during game frame:', error)
-				clearInterval(gameInterval)
 				setGame(undefined)
 			}
-		}, 25)
-	}
+		}
+
+		gameLoop()
+	}, [game])
 
 	return (
 		<GameContext.Provider

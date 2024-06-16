@@ -1,15 +1,13 @@
 import { useMenu, useMobile, usePixel } from '@/hooks'
 import s from './menu.module.css'
 import { Cursor } from './cursor'
-import { useState } from 'react'
 import { Editor } from '../editor/editor'
 
 export const Menu = () => {
 	const pixel = usePixel()
 	const isMobile = useMobile()
 
-	const [isEditing, setEditing] = useState(false)
-	const { state, choose } = useMenu(isEditing, () => setEditing(true))
+	const { state, choose, isEditing, setEditing } = useMenu()
 
 	if (isEditing) return <Editor close={() => setEditing(false)} />
 

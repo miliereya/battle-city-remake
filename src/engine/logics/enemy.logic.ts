@@ -9,14 +9,12 @@ export const enemiesSpawnLogic = (game: Game) => {
 		p1,
 		p2,
 		enemySpawnPosition,
-		timerBonus,
 	} = game
 	if (enemies.length === 4 || enemyList.length === 0) return
 
 	if (enemySpawnCooldown !== 0) {
 		return game.enemySpawnCooldown--
 	}
-	if (timerBonus) return
 
 	const busyCoordinates = [...enemies]
 	if (!isPlayerDead(p1)) busyCoordinates.push(p1)
@@ -69,7 +67,16 @@ export const enemiesSpawnLogic = (game: Game) => {
 export const enemiesFrameLogic = (game: Game) => {
 	const { enemies, p1, p2, objects, timerBonus, sounds, bullets } = game
 
-	if (timerBonus) return
+	if (timerBonus) {
+		for (let i = 0; i < enemies.length; i++) {
+			const enemy = enemies[i]
+			if (enemy.spawnAnimation) {
+				enemy.spawnAnimation--
+				continue
+			}
+		}
+		return
+	}
 
 	for (let i = 0; i < enemies.length; i++) {
 		const enemy = enemies[i]

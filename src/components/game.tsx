@@ -47,7 +47,9 @@ export const GameRender = ({ game }: Props) => {
 				<Enemies enemies={game.enemies} />
 				<Bonuses bonuses={game.bonuses} />
 				<Bangs bangs={game.bangs} />
-				<Flag pixel={pixel} isAlive={game.isFlagAlive} />
+				{!(game.level === 1 && game.levelChangeAnimation > 50) && (
+					<Flag pixel={pixel} isAlive={game.isFlagAlive} />
+				)}
 				<Sidebar game={game} />
 			</div>
 		</>

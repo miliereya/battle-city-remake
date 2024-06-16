@@ -12,7 +12,7 @@
 	width: 936px;
 	height: 0;
 	background: #747477;
-	animation: 3s screen_gray;
+	animation: 2.8s screen_gray;
 }
 
 .gray_screen_text {
@@ -97,7 +97,7 @@
 
 	.gray_screen_block {
 		width: 832px;
-		animation: 3s screen_gray_1090;
+		animation: 2.8s screen_gray_1090;
 	}
 
 	.gray_screen_text {
@@ -152,7 +152,7 @@
 
 	.gray_screen_block {
 		width: 728px;
-		animation: 3s screen_gray_870;
+		animation: 2.8s screen_gray_870;
 	}
 
 	.gray_screen_text {
@@ -200,7 +200,7 @@
 
 	.gray_screen_block {
 		width: 624px;
-		animation: 3s screen_gray_845;
+		animation: 2.8s screen_gray_845;
 	}
 
 	.gray_screen_text {
@@ -255,7 +255,7 @@
 
 	.gray_screen_block {
 		width: 520px;
-		animation: 3s screen_gray_750;
+		animation: 2.8s screen_gray_750;
 	}
 
 	.gray_screen_text {
@@ -310,7 +310,7 @@
 
 	.gray_screen_block {
 		width: 416px;
-		animation: 3s screen_gray_610;
+		animation: 2.8s screen_gray_610;
 	}
 
 	.gray_screen_text {
@@ -365,7 +365,7 @@
 
 	.gray_screen_block {
 		width: 312px;
-		animation: 3s screen_gray_500;
+		animation: 2.8s screen_gray_500;
 	}
 
 	.gray_screen_text {
@@ -420,7 +420,7 @@
 
 	.gray_screen_block {
 		width: 208px;
-		animation: 3s screen_gray_360;
+		animation: 2.8s screen_gray_360;
 	}
 
 	.gray_screen_text {

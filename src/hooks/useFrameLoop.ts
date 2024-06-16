@@ -1,16 +1,11 @@
 import { useEffect, useRef } from 'react'
 
-export const useFrameLoop = (
-	callback: (time: number, deltaTime: number) => void
-) => {
+export const useFrameLoop = (callback: () => void) => {
 	const rafId = useRef(0)
-	const previousTime = useRef(0)
 
 	useEffect(() => {
-		const loop = (time: number) => {
-			const deltaTime = time - previousTime.current
-			callback(time, deltaTime)
-			previousTime.current = time
+		const loop = () => {
+			callback()
 			rafId.current = requestAnimationFrame(loop)
 		}
 		rafId.current = requestAnimationFrame(loop)

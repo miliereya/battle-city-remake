@@ -3,12 +3,18 @@ import { useState } from 'react'
 import { GameRender } from './game'
 
 export const SetupLocal = () => {
-	const [, setFrame] = useState(0)
+	const [frame, setFrame] = useState(0)
 	const { game } = useGame()
 
 	useControls(game)
 
-	useFrameLoop(() => setFrame((prev) => prev + 1))
+	useFrameLoop(() => {
+		if (game && game.frame !== frame) {
+			setFrame(game.frame)
+		}
+	})
 
-	return game && <GameRender game={game} />
+	if (!game) return
+
+	return <GameRender game={game} />
 }

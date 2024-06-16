@@ -9,7 +9,9 @@ export const levelFrameLogic = (game: Game) => {
 		gameOverAnimation,
 	} = game
 
-	if (levelChangeAnimation === 110) game.nextLevel()
+	if (levelChangeAnimation === 60) {
+		game.nextLevel()
+	}
 
 	if (levelChangeAnimation) game.levelChangeAnimation--
 
@@ -26,6 +28,7 @@ export const levelFrameLogic = (game: Game) => {
 		!gameOverAnimation &&
 		!levelEndDelay &&
 		!levelChangeAnimation
-	)
+	) {
 		game.levelEndDelay = 100
+	}
 }

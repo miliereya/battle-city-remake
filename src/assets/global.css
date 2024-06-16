@@ -57,9 +57,19 @@ body {
 	height: 4.5px;
 }
 
+@keyframes appearSideBar {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
 .sidebar {
 	position: absolute;
 	left: 951px;
+	animation: appearSideBar 1.3s;
 
 	.sidebar_text {
 		font-family: 'Battle City';
