@@ -11,13 +11,12 @@ const movementMap: Record<string, TypeMoveButton> = {
 	KeyA: 'LEFT',
 	KeyS: 'BOTTOM',
 }
+let moveTimer: NodeJS.Timeout
 
 export const useOnlineControls = (game?: Game) => {
 	const isMobile = useMobile()
 
 	const [movement, setMovement] = useState<TypeMoveButton | null>(null)
-
-	let moveTimer: NodeJS.Timeout
 
 	const moveMobileHandler = (button: TypeMoveButton) => {
 		moveTimer = setInterval(() => inputHandler(button), 10)

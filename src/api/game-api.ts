@@ -2,6 +2,7 @@ import { Socket, io } from 'socket.io-client'
 import { GAME_ACTIONS, LOBBY_ACTIONS } from './game-actions'
 import { EditorObject, Game, GameSettings } from '@/engine'
 import { Dispatch, SetStateAction } from 'react'
+import { TypeButton } from '@/types'
 
 const socket = io(import.meta.env.VITE_API_SERVER ?? '', {
 	withCredentials: true,
@@ -44,7 +45,7 @@ export const gameApi = {
 		socket.off(GAME_ACTIONS.FRAME)
 	},
 
-	input(button: string, gameId: string) {
+	input(button: TypeButton | null, gameId: string) {
 		socket.emit(GAME_ACTIONS.INPUT, { button, gameId })
 	},
 }
